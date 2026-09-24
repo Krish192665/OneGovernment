@@ -1,0 +1,135 @@
+/* Shared site styles */
+.body, body {
+  font-family: Inter, 'Segoe UI', Roboto, Arial, Helvetica, sans-serif;
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+.container {
+  max-width: 960px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* Form styles */
+form .form-row {
+  margin-bottom: 12px;
+}
+label {
+  display: inline-block;
+  width: 120px;
+  font-weight: bold;
+}
+
+input[type=text], input[type=password], input[type=email], textarea {
+  width: 300px;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/* Validation styles */
+.validation-error {
+  color: #b94a48;
+  background-color: #f2dede;
+  border: 1px solid #eed3d7;
+  padding: 8px;
+  border-radius: 3px;
+  margin-bottom: 12px;
+}
+
+.field-error {
+  border-color: #b94a48 !important;
+  box-shadow: 0 0 3px rgba(185,74,72,0.2);
+}
+
+/* ValidationSummary list */
+.validation-summary ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+/* Login / Auth page styles */
+.auth-page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #f3f6fb 0%, #ffffff 40%);
+  padding: 40px 20px;
+}
+
+.auth-container {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  max-width: 1100px;
+  width: 100%;
+  padding: 24px 40px;
+}
+
+.auth-card {
+  width: 380px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 28px 28px;
+  box-shadow: 0 10px 30px rgba(15,23,42,0.06);
+  border: 1px solid rgba(15,23,42,0.04);
+}
+
+.auth-illustration {
+  flex: 0 0 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.auth-illustration svg { width: 100%; height: auto; max-width: 360px; }
+
+.auth-title { font-size: 26px; margin: 0 0 6px; color: #0f172a; }
+.auth-subtitle { margin: 0 0 18px; color: #475569; }
+
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; margin-bottom: 6px; color: #334155; font-weight: 600; }
+.form-input { width: 100%; max-width: 100%; box-sizing: border-box; padding: 10px 12px; border-radius: 8px; border: 1px solid #cbd5e1; background: #fff; transition: border-color .15s, box-shadow .15s; }
+.form-input:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,0.08); }
+
+.btn-auth-submit { display: block; width: 100%; padding: 12px 16px; background: #1e6fd8; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-weight: 700; box-shadow: 0 8px 24px rgba(30,111,216,0.12); }
+.btn-auth-submit:hover { transform: translateY(-1px); filter: brightness(1.03); }
+
+.forgot-link-wrap { margin: 6px 0 12px; text-align: right; }
+.auth-link { color: #2563eb; text-decoration: none; }
+.auth-link:hover { text-decoration: underline; }
+
+.auth-footer-text { margin-top: 16px; color: #475569; }
+
+.auth-header { margin-bottom: 14px; }
+.portal-brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit; padding: 4px 8px; }
+.navbar { position: relative; }
+.portal-brand { position: absolute; left: 28px; top: 12px; z-index: 50; }
+
+/* Ensure page content doesn't sit under the fixed header area */
+body { padding-top: 72px; }
+.portal-brand-logo svg { width:44px; height:44px; color:#1976d2; }
+.portal-brand-text strong { display:block; font-size:18px; color:#0f172a; }
+.portal-brand-text small { color:#64748b; font-size:12px; }
+
+/* Validation styles */
+.validation-error { color: #b94a48; background-color: #fff6f6; border: 1px solid #f2dede; padding: 10px 12px; border-radius: 6px; margin-bottom: 12px; }
+.validation-summary { margin-bottom: 12px; }
+.field-error { color: #b94a48; font-weight: 600; }
+
+/* Responsive adjustments */
+@media (max-width: 880px) {
+  .auth-container { flex-direction: column-reverse; gap: 18px; }
+  .auth-illustration { display:none; }
+  .auth-card { padding: 20px; }
+}
+
+@media (max-width: 480px) {
+  .auth-card { border-radius: 6px; padding: 16px; }
+  .portal-brand-logo svg { width:36px; height:36px; }
+  .auth-title { font-size: 20px; }
+}
