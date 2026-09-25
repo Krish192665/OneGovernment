@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -11,6 +9,9 @@ namespace OneGovernment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Disables unobtrusive JavaScript mode so ASP.NET Web Forms validation runs smoothly
+            UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
+
             if (!IsPostBack)
             {
                 EmailTextBox.Focus();
@@ -19,8 +20,19 @@ namespace OneGovernment
 
         protected void SignInButton_Click(object sender, EventArgs e)
         {
+            // Run validation specifically for the LoginGroup controls
+            Page.Validate("LoginGroup");
+
+            // If any field is empty or invalid, stop processing
+            if (!Page.IsValid)
+            {
+                return;
+            }
+
             string emailOrMobile = EmailTextBox.Text.Trim();
-            string name = "John Doe";
+            string password = PasswordTextBox.Text.Trim();
+            string name = "Citizen";
+
             if (!string.IsNullOrEmpty(emailOrMobile))
             {
                 if (emailOrMobile.Contains("@"))
@@ -33,6 +45,7 @@ namespace OneGovernment
                 }
                 Session["Email"] = emailOrMobile;
             }
+
             Session["DisplayName"] = name;
             Response.Redirect("Home.aspx", false);
             Context.ApplicationInstance.CompleteRequest();
