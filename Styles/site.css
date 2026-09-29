@@ -1,45 +1,90 @@
 /* ==========================================
    1. Shared Base Styles
    ========================================== */
-* {
-    box-sizing: border-box;
-}
-
 body, .body {
     font-family: Inter, 'Segoe UI', Roboto, Arial, Helvetica, sans-serif;
-    background-color: #f8fafc;
+    background-color: #f1f5f9;
     color: #0f172a;
     margin: 0;
-    padding: 0;
+    padding-top: 72px;
 }
 
 /* ==========================================
-   2. Brand Header (Login / Register)
+   0. High-specificity overrides for pages (Home) to ensure site.css wins
+   ========================================== */
+/* These selectors are intentionally specific to override other styles (government.css or framework). */
+.container.body-content .portal-wrapper,
+.container.body-content .portal-layout,
+.container.body-content .portal-header,
+.container.body-content .portal-sidebar,
+.container.body-content .portal-content {
+    /* ensure portal layout rules apply inside master container */
+}
+
+/* Force key layout properties with slightly higher specificity */
+.container.body-content .portal-layout {
+    display: flex !important;
+    gap: 28px !important;
+    padding: 24px 36px !important;
+}
+
+.container.body-content .portal-sidebar {
+    width: 240px !important;
+    background: #ffffff !important;
+    border-radius: 12px !important;
+    padding: 16px 12px !important;
+    border: 1px solid #e2e8f0 !important;
+}
+
+.container.body-content .portal-content {
+    flex: 1 !important;
+}
+
+/* Ensure the header from master doesn't hide content: keep sticky and z-index */
+.container.body-content .portal-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 100 !important;
+}
+
+.container {
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================
+   2. Brand Header
    ========================================== */
 .auth-header {
     margin-bottom: 14px;
 }
 
 .portal-brand {
+    position: relative;
+    z-index: 50;
     display: flex;
     align-items: center;
     gap: 12px;
     text-decoration: none;
     color: inherit;
     padding: 4px 8px;
+    margin-right: 12px;
 }
 
 .portal-brand-logo svg {
     width: 40px;
     height: 40px;
-    color: #1e6fd8;
+    color: #1976d2;
 }
 
 .portal-brand-text strong {
     display: block;
     font-size: 18px;
     color: #0f172a;
-    font-weight: 700;
 }
 
 .portal-brand-text small {
@@ -48,6 +93,238 @@ body, .body {
 }
 
 /* ==========================================
+   3. Auth Layout & Card
+   ========================================== */
+.auth-page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #f3f6fb 0%, #ffffff 40%);
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.auth-container {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    max-width: 1100px;
+    width: 100%;
+    padding: 24px 40px;
+}
+
+.auth-card {
+    width: 380px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    border: 1px solid rgba(15, 23, 42, 0.04);
+}
+
+.auth-illustration {
+    flex: 0 0 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .auth-illustration svg {
+        width: 100%;
+        height: auto;
+        max-width: 360px;
+    }
+
+.auth-title {
+    font-size: 26px;
+    margin: 0 0 6px;
+    color: #0f172a;
+    font-weight: 700;
+}
+
+.auth-subtitle {
+    margin: 0 0 18px;
+    color: #475569;
+    font-size: 0.95rem;
+}
+
+/* ==========================================
+   4. Form Controls & Validation Layout
+   ========================================== */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 14px;
+    width: 100%;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 6px;
+        color: #334155;
+        font-weight: 600;
+        font-size: 0.875rem;
+    }
+
+.form-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    font-size: 0.95rem;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+    .form-input:focus {
+        outline: none;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+    }
+
+/* --- Field Error (Hidden on load, displays beneath input on submit) --- */
+.field-error {
+    display: block;
+    width: 100%;
+    clear: both;
+    color: #dc2626;
+    font-size: 0.82rem;
+    font-weight: 500;
+    margin-top: 5px;
+    line-height: 1.3;
+}
+
+    /* Strict hide when Web Forms keeps validator hidden */
+    .field-error[style*="display: none"],
+    .field-error[style*="display:none"],
+    .field-error[style*="visibility: hidden"] {
+        display: none !important;
+    }
+
+/* Notification banner for success or alert messages */
+.form-notification {
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+}
+
+    .form-notification.success {
+        background-color: #ecfdf5;
+        color: #065f46;
+        border: 1px solid #a7f3d0;
+    }
+
+/* ==========================================
+   5. Buttons & Links
+   ========================================== */
+.btn-auth-submit {
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    background: #1e6fd8;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: 8px;
+    box-shadow: 0 6px 20px rgba(30, 111, 216, 0.2);
+    transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+    .btn-auth-submit:hover {
+        transform: translateY(-1px);
+        filter: brightness(1.05);
+    }
+
+.auth-link {
+    color: #2563eb;
+    text-decoration: none;
+    font-size: 0.875rem;
+}
+
+    .auth-link:hover {
+        text-decoration: underline;
+    }
+
+.auth-footer-text {
+    margin-top: 18px;
+    color: #475569;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* ==========================================
+   6. Responsive Rules
+   ========================================== */
+@media (max-width: 880px) {
+    .auth-container {
+        flex-direction: column-reverse;
+        gap: 18px;
+        padding: 20px 10px;
+    }
+
+    .auth-illustration {
+        display: none;
+    }
+
+    .auth-card {
+        width: 100%;
+        max-width: 400px;
+        padding: 24px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-top: 60px;
+    }
+
+    .portal-brand-logo svg {
+        width: 34px;
+        height: 34px;
+    }
+
+    .portal-brand-text strong {
+        font-size: 16px;
+    }
+
+    .auth-title {
+        font-size: 22px;
+    }
+
+    .auth-card {
+        padding: 20px 16px;
+    }
+}
+/* Container Box: Background & Border */
+.validation-summary {
+    color: #991b1b !important; /* Dark red text color */
+    background-color: #fee2e2 !important; /* Soft light-red alert background */
+    border: 1px solid #f87171 !important; /* Subtle red border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+    /* Bullet list text & alignment inside the box */
+    .validation-summary ul {
+        margin: 8px 0 0 0;
+        padding-left: 20px;
+        color: #b91c1c !important; /* Bullet item text color */
+    }
+
+    .validation-summary li {
+        margin-bottom: 4px;
+    }/* ==========================================
    3. Portal & Dashboard Shell
    ========================================== */
 .portal-wrapper {
@@ -61,56 +338,115 @@ body, .body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 36px;
-    background: #ffffff;
-    border-bottom: 1px solid #e2e8f0;
+    padding: 12px 28px;
+    background: #f8fbff; /* subtle blue tint to match design */
+    border-bottom: 1px solid #e6eef8;
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
+/* Search: larger rounded pill aligned to the left area; leaves space for brand */
 .header-search {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
     display: flex;
     align-items: center;
-    gap: 10px;
-    background: #f1f5f9;
-    border-radius: 20px;
-    padding: 8px 16px;
-    border: 1px solid #e2e8f0;
-    width: 380px;
+    gap: 12px;
+    background: #ffffff;
+    border-radius: 999px;
+    padding: 10px 16px;
+    border: 1px solid #e6eef8;
+    width: 520px; /* reduced width per request */
+    max-width: calc(100% - 260px); /* leave room for brand + actions */
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+    z-index: 105; /* sit above other header items */
+    transition: transform 0.15s ease, box-shadow 0.18s ease, border-color 0.12s ease;
 }
 
     .header-search .search-icon {
-        width: 18px;
-        height: 18px;
+        width: 20px;
+        height: 20px;
         color: #64748b;
+        flex: 0 0 auto;
     }
 
     .header-search input {
         border: none;
         outline: none;
         width: 100%;
-        font-size: 0.9rem;
+        font-size: 1rem;
         background: transparent;
-        color: #1e293b;
+        color: #0f172a;
+        caret-color: #1e6fd8;
     }
+
+    .header-search input::placeholder {
+        color: #9aa6b2;
+        font-weight: 500;
+    }
+
+/* Hover and focus effects for better affordance */
+.header-search:hover {
+    transform: translateX(-50%) translateY(-3px);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    border-color: #dbeffd;
+}
+
+.header-search:focus-within {
+    transform: translateX(-50%) translateY(-4px);
+    border-color: #3b82f6;
+    box-shadow: 0 12px 36px rgba(59, 130, 246, 0.12);
+}
+
+.header-search:hover .search-icon,
+.header-search:focus-within .search-icon {
+    color: #1e6fd8;
+}
+
+/* Responsive adjustments: shrink search on narrower viewports */
+@media (max-width: 1200px) {
+    .header-search {
+        width: 440px;
+        max-width: calc(100% - 200px);
+        padding: 10px 14px;
+    }
+}
+
+@media (max-width: 880px) {
+    /* move search into normal flow on small screens */
+    .header-search {
+        position: static;
+        transform: none;
+        width: 100%;
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 10px 12px;
+    }
+    .portal-header {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+}
 
 .header-actions {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
 }
 
 .notification-bell {
     position: relative;
-    background: #f1f5f9;
-    border: none;
+    background: #ffffff;
+    border: 1px solid #e6eef8;
     padding: 8px;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
 }
 
     .notification-bell svg {
@@ -134,15 +470,21 @@ body, .body {
     gap: 10px;
     text-decoration: none;
     color: inherit;
-    padding: 4px 10px;
-    border-radius: 24px;
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: #ffffff;
+    border: 1px solid #e6eef8;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.user-profile-chip:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(15,23,42,0.08);
 }
 
 .user-avatar-circle {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     background: #dbeafe;
     color: #1e6fd8;
     border-radius: 50%;
@@ -157,10 +499,11 @@ body, .body {
     }
 
 .user-name {
-    font-size: 0.88rem;
+    font-size: 0.95rem;
     font-weight: 600;
-    color: #1e293b;
+    color: #0f172a;
 }
+
 
 .chevron-down {
     width: 16px;
@@ -317,7 +660,24 @@ body, .body {
     .service-icon-box svg {
         width: 26px;
         height: 26px;
+        color: inherit;
+        stroke: currentColor;
+        fill: none;
+       // vector-effect: non-scaling-stroke;
+        stroke-width: 1.8;
     }
+/* Ensure common shape elements adopt stroke-based icon look */
+.service-icon-box svg path,
+.service-icon-box svg circle,
+.service-icon-box svg rect,
+.service-icon-box svg line,
+.service-icon-box svg polyline,
+.service-icon-box svg polygon {
+    stroke: currentColor;
+    fill: none;
+    //stroke-width: 1.8;
+   // vector-effect: non-scaling-stroke;
+}
 
 .service-name {
     font-size: 0.92rem;
@@ -326,45 +686,16 @@ body, .body {
 }
 
 /* Department Icon Accent Themes */
-.icon-it {
-    background-color: #e0f2fe;
-    color: #0284c7;
-}
-
-.icon-police {
-    background-color: #fee2e2;
-    color: #dc2626;
-}
-
-.icon-students {
-    background-color: #fef3c7;
-    color: #d97706;
-}
-
-.icon-colleges {
-    background-color: #ede9fe;
-    color: #7c3aed;
-}
-
-.icon-rto {
-    background-color: #ffedd5;
-    color: #ea580c;
-}
-
-.icon-passport {
-    background-color: #ccfbf1;
-    color: #0d9488;
-}
-
-.icon-taxes {
-    background-color: #dcfce7;
-    color: #16a34a;
-}
-
-.icon-health {
-    background-color: #ffe4e6;
-    color: #e11d48;
-}
+/* Icon accent themes applied to the service-icon-box element so they can't be overridden
+   by the generic .service-icon-box background. */
+.service-icon-box.icon-it { background-color: #e0f2fe; color: #0284c7; }
+.service-icon-box.icon-police { background-color: #fee2e2; color: #dc2626; }
+.service-icon-box.icon-students { background-color: #fef3c7; color: #d97706; }
+.service-icon-box.icon-colleges { background-color: #ede9fe; color: #7c3aed; }
+.service-icon-box.icon-rto { background-color: #ffedd5; color: #ea580c; }
+.service-icon-box.icon-passport { background-color: #ccfbf1; color: #0d9488; }
+.service-icon-box.icon-taxes { background-color: #dcfce7; color: #16a34a; }
+.service-icon-box.icon-health { background-color: #ffe4e6; color: #e11d48; }
 
 .icon-transport {
     background-color: #e0e7ff;
@@ -424,3 +755,72 @@ body, .body {
         display: none;
     }
 }
+/* ==========================================
+   8. Services / Category Page Styles
+   ========================================== */
+.section-title {
+    font-size: 1.6rem;
+    margin: 0 0 6px;
+    color: #0f172a;
+    font-weight: 700;
+}
+
+.section-subtitle {
+    margin: 0 0 18px;
+    color: #64748b;
+    font-size: 0.98rem;
+}
+
+.page-greeting h1 { margin:0 0 6px; }
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 12px;
+}
+
+.service-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    background: #ffffff;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #0f172a;
+    border: 1px solid rgba(2,6,23,0.03);
+    box-shadow: 0 6px 18px rgba(2,6,23,0.04);
+    transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(2,6,23,0.08);
+    background: linear-gradient(180deg, #ffffff, #fbfcff);
+}
+
+.service-icon-box {
+    width:56px; height:56px; border-radius:8px; display:flex; align-items:center; justify-content:center; background:#eef2ff; flex-shrink:0;
+}
+.service-icon-box svg { width:28px; height:28px; color:#2563eb; }
+
+.service-name { font-weight:700; font-size:0.98rem; }
+
+/* smaller screens adjustments */
+@media (max-width:600px) {
+    .service-card { padding: 12px; gap:10px; }
+    .service-icon-box { width:48px; height:48px; }
+    .service-name { font-size:0.95rem; }
+}
+
+/* police Icon Accent Themes  */
+/*.icon-File-e-FIR {
+    background-color: #e0f2fe;
+    color: #0284c7;
+}
+.icon-PCC {
+    background-color: #e0f2fe;
+    color: #0284c7;
+}
+*/
