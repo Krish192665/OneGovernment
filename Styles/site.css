@@ -124,6 +124,38 @@ body, .body {
     border: 1px solid rgba(15, 23, 42, 0.04);
 }
 
+/* Back button for pages */
+.page-actions {
+    margin: 8px 0 18px 0;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    background: #ffffff;
+    color: #1e293b;
+    border: 1px solid #e6eef8;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(15,23,42,0.04);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.back-button svg {
+    width: 18px;
+    height: 18px;
+    color: #64748b;
+}
+
+.back-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(15,23,42,0.08);
+    background: #f8fafc;
+}
+
 .auth-illustration {
     flex: 0 0 420px;
     display: flex;
@@ -663,8 +695,6 @@ body, .body {
         color: inherit;
         stroke: currentColor;
         fill: none;
-       // vector-effect: non-scaling-stroke;
-        stroke-width: 1.8;
     }
 /* Ensure common shape elements adopt stroke-based icon look */
 .service-icon-box svg path,
@@ -675,8 +705,6 @@ body, .body {
 .service-icon-box svg polygon {
     stroke: currentColor;
     fill: none;
-    //stroke-width: 1.8;
-   // vector-effect: non-scaling-stroke;
 }
 
 .service-name {
@@ -814,13 +842,3 @@ body, .body {
     .service-name { font-size:0.95rem; }
 }
 
-/* police Icon Accent Themes  */
-/*.icon-File-e-FIR {
-    background-color: #e0f2fe;
-    color: #0284c7;
-}
-.icon-PCC {
-    background-color: #e0f2fe;
-    color: #0284c7;
-}
-*/
