@@ -11,7 +11,8 @@ namespace OneGovernment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Home.aspx", false);
+            Context.ApplicationInstance.CompleteRequest();
         }
     }
 }
