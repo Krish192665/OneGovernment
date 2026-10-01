@@ -34,9 +34,16 @@ namespace OneGovernment
             string emailOrMobile = EmailTextBox.Text.Trim();
             string password = PasswordTextBox.Text.Trim();
 
+            // Optional fields
+            int age = 0;
+            int.TryParse(AgeTextBox?.Text, out age);
+            string role = RoleDropDown?.SelectedValue ?? string.Empty;
+
             // Store user details in session (or replace with database insert query)
             Session["DisplayName"] = name;
             Session["Email"] = emailOrMobile;
+            Session["Age"] = age;
+            Session["Role"] = role;
 
             // Redirect user to Login page upon completion
             Response.Redirect("Login.aspx", false);
