@@ -3,7 +3,89 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head runat="server">
+<head runat="server"><style>
+    /* 1. Body અને HTML નો 72px ગેપ અને 980px લિમિટ હટાવો */
+    html, 
+    body, 
+    body.body,
+    body.container {
+        margin: 0 !important;
+        padding: 0 !important;
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        background-color: #f8fafc !important;
+    }
+
+    /* 2. ASP.NET form#ctl01 ને સીધું ટોપ પર flush કરો */
+    form,
+    #ctl01,
+    form#ctl01,
+    form.container {
+        margin: 0 !important;
+        padding: 0 !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        border: none !important;
+        box-shadow: none !important;
+        display: block !important;
+    }
+
+    /* 3. Container ની 20px padding અને 960px/980px વિડ્થ દૂર કરો */
+    .container,
+    .body-content,
+    .container.body-content {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
+    }
+
+    /* 4. કોઈ જૂનું અદ્રશ્ય Navbar જગ્યા રોકતું હોય તો છુપાવો */
+    .navbar,
+    .navbar-fixed-top,
+    .navbar-inverse,
+    .navbar-default {
+        display: none !important;
+        height: 0 !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* 5. Portal Wrapper અને Header ને એકદમ ઉપર (0px) સેટ કરો */
+    .portal-wrapper {
+        margin: 0 !important;
+        padding: 0 !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        width: 100% !important;
+    }
+
+    .portal-header {
+        position: sticky !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 70px !important;
+        margin: 0 !important;
+        margin-top: 0 !important;
+        padding: 0 36px !important;
+        background: #ffffff !important;
+        border-bottom: 1px solid #e2e8f0 !important;
+        box-sizing: border-box !important;
+        z-index: 9999 !important;
+    }
+</style>
     <link runat="server" href="~/Styles/site.css" rel="stylesheet" />
 </head>
 <body>

@@ -46,7 +46,7 @@ namespace OneGovernment
             Session["Role"] = role;
 
             // Redirect user to Login page upon completion
-            Response.Redirect("Login.aspx", false);
+            Response.Redirect("Home.aspx", false);
             Context.ApplicationInstance.CompleteRequest();
         }
     }

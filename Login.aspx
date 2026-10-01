@@ -13,7 +13,6 @@
 <body class="auth-page-wrapper">
     <form id="loginForm" runat="server" defaultbutton="SignInButton">
         <asp:ScriptManager runat="server" />
-        <asp:ValidationSummary ID="LoginValidationSummary" runat="server" CssClass="validation-summary validation-error" HeaderText="Please fix the following errors:" />
         <!-- Brand Header -->
         <header class="auth-header">
             <a class="portal-brand" href="Login.aspx">
@@ -40,20 +39,20 @@
                 <div class="form-group">
                     <label for="EmailTextBox">Email or Mobile</label>
                     <asp:TextBox ID="EmailTextBox" runat="server" CssClass="form-input" placeholder="e.g. ramesh@gmail.com" />
-                    <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="EmailTextBox" ErrorMessage="Email or mobile is required." CssClass="field-error" Display="Dynamic" />
+                    <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="EmailTextBox" ErrorMessage="Email or mobile is required." CssClass="field-error" Display="Dynamic" ValidationGroup="LoginGroup" />
                 </div>
 
                 <div class="form-group">
                     <label for="PasswordTextBox">Password</label>
                     <asp:TextBox ID="PasswordTextBox" runat="server" CssClass="form-input" TextMode="Password" placeholder="••••••••" />
-                    <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="PasswordTextBox" ErrorMessage="Password is required." CssClass="field-error" Display="Dynamic" />
+                    <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="PasswordTextBox" ErrorMessage="Password is required." CssClass="field-error" Display="Dynamic" ValidationGroup="LoginGroup" />
                 </div>
 
                 <div class="forgot-link-wrap">
                     <a href="ForgotPassword.aspx" class="auth-link">Forgot Password?</a>
                 </div>
 
-                <asp:Button ID="SignInButton" runat="server" Text="Login" CssClass="btn-auth-submit" OnClick="SignInButton_Click" />
+                <asp:Button ID="SignInButton" runat="server" Text="Login" CssClass="btn-auth-submit" OnClick="SignInButton_Click" ValidationGroup="LoginGroup" />
 
                 <div class="auth-footer-text">
                     Don't have an account? <a href="Register.aspx" class="auth-link">Register</a>

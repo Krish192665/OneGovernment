@@ -24,13 +24,7 @@ namespace OneGovernment
         protected global::System.Web.UI.HtmlControls.HtmlForm registerForm;
 
         /// <summary>
-        /// RegisterValidationSummary control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary RegisterValidationSummary;
+
 
         /// <summary>
         /// StatusLabel control.

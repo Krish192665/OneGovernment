@@ -13,7 +13,6 @@
 <body class="auth-page-wrapper">
     <form id="registerForm" runat="server" defaultbutton="RegisterButton">
         <asp:ScriptManager runat="server" />
-        <asp:ValidationSummary ID="RegisterValidationSummary" runat="server" CssClass="validation-summary validation-error" HeaderText="Please fix the following errors:" ValidationGroup="RegisterGroup" />
         <!-- Brand Header -->
         <header class="auth-header">
             <a class="portal-brand" href="Login.aspx">
