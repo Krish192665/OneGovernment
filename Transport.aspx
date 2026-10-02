@@ -11,7 +11,7 @@
     <h2 class="section-title">Transport</h2>
     <div class="services-grid">
         <!-- 1. Vehicle Inspection -->
-        <a class="service-card" href="Category.aspx?type=vehicle-inspection">
+        <a class="service-card" href="Transport From/TransportDetails.aspx?type=vehicle-inspection">
             <div class="service-icon-box icon-vehicle-inspection">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
                     <!-- Inspector Profile -->
@@ -32,7 +32,7 @@
         </a>
 
         <!-- 2. Transport Authority -->
-        <a class="service-card" href="Category.aspx?type=transport-authority">
+        <a class="service-card" href="Transport From/TransportDetails.aspx?type=transport-authority">
             <div class="service-icon-box icon-transport-authority">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
                     <!-- Official Silhouette with Tie -->
@@ -51,7 +51,7 @@
         </a>
 
         <!-- 3. BUS Officer -->
-        <a class="service-card" href="Category.aspx?type=bus-officer">
+        <a class="service-card" href="Transport From/TransportDetails.aspx?type=bus-officer">
             <div class="service-icon-box icon-bus-officer">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
                     <!-- Bus Body -->
@@ -71,7 +71,7 @@
         </a>
 
         <!-- 4. Train Operator -->
-        <a class="service-card" href="Category.aspx?type=train-operator">
+        <a class="service-card" href="Transport From/TransportDetails.aspx?type=train-operator">
             <div class="service-icon-box icon-train-operator">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
                     <!-- Train Cab Frame -->

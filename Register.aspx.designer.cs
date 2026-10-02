@@ -24,9 +24,6 @@ namespace OneGovernment
         protected global::System.Web.UI.HtmlControls.HtmlForm registerForm;
 
         /// <summary>
-
-
-        /// <summary>
         /// StatusLabel control.
         /// </summary>
         /// <remarks>

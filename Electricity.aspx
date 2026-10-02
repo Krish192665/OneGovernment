@@ -11,7 +11,7 @@
     <h2 class="section-title">Electricity</h2>
     <div class="services-grid">
         <!-- 1. Electricity Officer -->
-        <a class="service-card" href="Category.aspx?type=electricity-officer">
+        <a class="service-card" href="Electricity From/ElectricityDetails.aspx?type=electricity-officer">
             <div class="service-icon-box icon-electricity-officer">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
                     <!-- Safety Hard Hat -->
@@ -29,7 +29,7 @@
         </a>
 
         <!-- 2. Electrical Inspector -->
-        <a class="service-card" href="Category.aspx?type=electrical-inspector">
+        <a class="service-card" href="Electricity From/ElectricityDetails.aspx?type=electrical-inspector">
             <div class="service-icon-box icon-electrical-inspector">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
                     <!-- Inspector Profile -->
@@ -50,7 +50,7 @@
         </a>
 
         <!-- 3. Department Authority -->
-        <a class="service-card" href="Category.aspx?type=department-authority">
+        <a class="service-card" href="Electricity From/ElectricityDetails.aspx?type=department-authority">
             <div class="service-icon-box icon-department-authority">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
                     <!-- Official Silhouette with Tie -->

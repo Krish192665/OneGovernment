@@ -98,20 +98,29 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Agriculture From\AgricultureDetails.aspx" />
     <Content Include="Agriculture.aspx" />
     <Content Include="App_Data\OneGovernment.mdf" />
     <Content Include="App_Data\OneGovernment_log.ldf">
       <DependentUpon>OneGovernment.mdf</DependentUpon>
     </Content>
+    <Content Include="Collage From\CollageDetail.aspx" />
     <Content Include="Collage.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Category.aspx" />
+    <Content Include="Electricity From\ElectricityDetails.aspx" />
     <Content Include="Electricity.aspx" />
+    <Content Include="Health From\HealthDetails.aspx" />
     <Content Include="Health.aspx" />
+    <Content Include="IncomTaxes From\IncomTaxsDetails.aspx" />
     <Content Include="IncomText.aspx" />
+    <Content Include="ItService_From\DetailsPage.aspx" />
     <Content Include="Itservice.aspx" />
+    <Content Include="Passport From\PassportDetails.aspx" />
     <Content Include="Passport.aspx" />
+    <Content Include="Police From\PoliceDetails.aspx" />
     <Content Include="Profile.aspx" />
+    <Content Include="RTO From\RTODetails.aspx" />
     <Content Include="RTO.aspx" />
     <Content Include="Setting.aspx" />
     <Content Include="HelpSupport.aspx" />
@@ -195,8 +204,10 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="Student From\StudentDetails.aspx" />
     <Content Include="Student.aspx" />
     <Content Include="Styles\site.css" />
+    <Content Include="Transport From\TransportDetails.aspx" />
     <Content Include="Transport.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -204,6 +215,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Agriculture From\AgricultureDetails.aspx.cs">
+      <DependentUpon>AgricultureDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agriculture From\AgricultureDetails.aspx.designer.cs">
+      <DependentUpon>AgricultureDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Agriculture.aspx.cs">
       <DependentUpon>Agriculture.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -219,12 +237,26 @@
     <Compile Include="Category.aspx.designer.cs">
       <DependentUpon>Category.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Collage From\CollageDetail.aspx.cs">
+      <DependentUpon>CollageDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Collage From\CollageDetail.aspx.designer.cs">
+      <DependentUpon>CollageDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Collage.aspx.cs">
       <DependentUpon>Collage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Collage.aspx.designer.cs">
       <DependentUpon>Collage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Electricity From\ElectricityDetails.aspx.cs">
+      <DependentUpon>ElectricityDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Electricity From\ElectricityDetails.aspx.designer.cs">
+      <DependentUpon>ElectricityDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Electricity.aspx.cs">
       <DependentUpon>Electricity.aspx</DependentUpon>
@@ -233,12 +265,26 @@
     <Compile Include="Electricity.aspx.designer.cs">
       <DependentUpon>Electricity.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Health From\HealthDetails.aspx.cs">
+      <DependentUpon>HealthDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Health From\HealthDetails.aspx.designer.cs">
+      <DependentUpon>HealthDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Health.aspx.cs">
       <DependentUpon>Health.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Health.aspx.designer.cs">
       <DependentUpon>Health.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IncomTaxes From\IncomTaxsDetails.aspx.cs">
+      <DependentUpon>IncomTaxsDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IncomTaxes From\IncomTaxsDetails.aspx.designer.cs">
+      <DependentUpon>IncomTaxsDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="IncomText.aspx.cs">
       <DependentUpon>IncomText.aspx</DependentUpon>
@@ -247,12 +293,26 @@
     <Compile Include="IncomText.aspx.designer.cs">
       <DependentUpon>IncomText.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ItService_From\DetailsPage.aspx.cs">
+      <DependentUpon>DetailsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ItService_From\DetailsPage.aspx.designer.cs">
+      <DependentUpon>DetailsPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Itservice.aspx.cs">
       <DependentUpon>Itservice.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Itservice.aspx.designer.cs">
       <DependentUpon>Itservice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Passport From\PassportDetails.aspx.cs">
+      <DependentUpon>PassportDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Passport From\PassportDetails.aspx.designer.cs">
+      <DependentUpon>PassportDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Passport.aspx.cs">
       <DependentUpon>Passport.aspx</DependentUpon>
@@ -261,9 +321,23 @@
     <Compile Include="Passport.aspx.designer.cs">
       <DependentUpon>Passport.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Police From\PoliceDetails.aspx.cs">
+      <DependentUpon>PoliceDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Police From\PoliceDetails.aspx.designer.cs">
+      <DependentUpon>PoliceDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RTO From\RTODetails.aspx.cs">
+      <DependentUpon>RTODetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RTO From\RTODetails.aspx.designer.cs">
+      <DependentUpon>RTODetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="RTO.aspx.cs">
       <DependentUpon>RTO.aspx</DependentUpon>
@@ -348,12 +422,26 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="Student From\StudentDetails.aspx.cs">
+      <DependentUpon>StudentDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student From\StudentDetails.aspx.designer.cs">
+      <DependentUpon>StudentDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Student.aspx.cs">
       <DependentUpon>Student.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Student.aspx.designer.cs">
       <DependentUpon>Student.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Transport From\TransportDetails.aspx.cs">
+      <DependentUpon>TransportDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Transport From\TransportDetails.aspx.designer.cs">
+      <DependentUpon>TransportDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Transport.aspx.cs">
       <DependentUpon>Transport.aspx</DependentUpon>
@@ -370,9 +458,7 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Image\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.7.0.slim.min.map" />

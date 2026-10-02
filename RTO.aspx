@@ -11,7 +11,7 @@
     <h2 class="section-title">RTO</h2>
     <div class="services-grid">
         <!-- 1. Driving License -->
-        <a class="service-card" href="Category.aspx?type=driving-license">
+        <a class="service-card" href="RTO From/RTODetails.aspx?type=driving-license">
             <div class="service-icon-box icon-driving-license">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
                     <!-- License Card Border -->
@@ -29,7 +29,7 @@
         </a>
 
         <!-- 2. Number Plate -->
-        <a class="service-card" href="Category.aspx?type=number-plate">
+        <a class="service-card" href="RTO From/RTODetails.aspx?type=number-plate">
             <div class="service-icon-box icon-number-plate">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
                     <!-- Number Plate Frame -->

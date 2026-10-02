@@ -267,7 +267,7 @@ body::-webkit-scrollbar {
     padding: 48px 20px;
     box-sizing: border-box;
     /* background image path is relative to Styles/site.css -> ../Images/login-bg.jpg */
-    background-image: url('../Images/Login.pn');
+    background-image: url('../Login.png');
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;

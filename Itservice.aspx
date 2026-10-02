@@ -11,7 +11,7 @@
     <h2 class="section-title">IT Services</h2>
     <div class="services-grid">
         <!-- 1. Cloud Computing & Networks -->
-        <a class="service-card" href="Category.aspx?type=cloud-computing">
+        <a class="service-card" href="ItService_From/DetailsPage.aspx?type=cloud-computing" title="Cloud Computing & Networks">
             <div class="service-icon-box icon-cloud-computing">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
                     <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
@@ -23,7 +23,7 @@
         </a>
 
         <!-- 2. Server Rack -->
-        <a class="service-card" href="Category.aspx?type=server-rack">
+        <a class="service-card" href="ItService_From/DetailsPage.aspx?type=server-rack">
             <div class="service-icon-box icon-server-rack">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
                     <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
@@ -36,7 +36,7 @@
         </a>
 
         <!-- 3. Cyber Security & IT Protection -->
-        <a class="service-card" href="Category.aspx?type=cyber-security">
+        <a class="service-card" href="ItService_From/DetailsPage.aspx?type=cyber-security">
             <div class="service-icon-box icon-cyber-security">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
@@ -48,7 +48,7 @@
 
 
         <!-- 4. Lost Property Report -->
-        <a class="service-card" href="Category.aspx?type=lost-property">
+        <a class="service-card" href="ItService_From/DetailsPage.aspx?type=lost-property">
             <div class="service-icon-box icon-lost-property">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
                     <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>

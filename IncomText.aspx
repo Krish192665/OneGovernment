@@ -11,7 +11,7 @@
     <h2 class="section-title">Income Taxes</h2>
     <div class="services-grid">
         <!-- 1. PAN Card -->
-        <a class="service-card" href="Category.aspx?type=pan-card">
+        <a class="service-card" href="IncomTaxes From/IncomTaxsDetails.aspx?type=pan-card">
             <div class="service-icon-box icon-pan-card">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
                     <!-- Card Frame -->
@@ -31,7 +31,7 @@
         </a>
 
         <!-- 2. Tax Officer -->
-        <a class="service-card" href="Category.aspx?type=tax-officer">
+        <a class="service-card" href="IncomTaxes From/IncomTaxsDetails.aspx?type=tax-officer">
             <div class="service-icon-box icon-tax-officer">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
                     <!-- Officer Head -->
@@ -51,7 +51,7 @@
         </a>
 
         <!-- 3. Income Tax Auditor -->
-        <a class="service-card" href="Category.aspx?type=income-tax-auditor">
+        <a class="service-card" href="IncomTaxes From/IncomTaxsDetails.aspx?type=income-tax-auditor">
             <div class="service-icon-box icon-income-tax-auditor">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
                     <!-- Inspector Avatar -->

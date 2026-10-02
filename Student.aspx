@@ -11,7 +11,7 @@
     <h2 class="section-title">Student Services</h2>
     <div class="services-grid">
         <!-- 1. Scholarship -->
-        <a class="service-card" href="Category.aspx?type=scholarship">
+        <a class="service-card" href="Student From/StudentDetails.aspx?type=scholarship">
             <div class="service-icon-box icon-scholarship">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
                     <!-- Mortarboard -->
@@ -27,7 +27,7 @@
         </a>
 
         <!-- 2. Verified Student ID -->
-        <a class="service-card" href="Category.aspx?type=verified-student-id">
+        <a class="service-card" href="Student From/StudentDetails.aspx?type=verified-student-id">
             <div class="service-icon-box icon-verified-student-id">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
                     <!-- ID Card Base -->
@@ -45,7 +45,7 @@
         </a>
 
         <!-- 3. Student Degree with Government Seal -->
-        <a class="service-card" href="Category.aspx?type=student-degree">
+        <a class="service-card" href="Student From/StudentDetails.aspx?type=student-degree">
             <div class="service-icon-box icon-student-degree">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
                     <!-- Diploma / Certificate -->

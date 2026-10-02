@@ -11,7 +11,7 @@
     <h2 class="section-title">Colleges</h2>
     <div class="services-grid">
         <!-- 1. College Application -->
-        <a class="service-card" href="Category.aspx?type=college-application">
+        <a class="service-card" href="Collage From/CollageDetail.aspx?type=college-application">
             <div class="service-icon-box icon-college-application">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
                     <!-- Document Base -->
@@ -27,7 +27,7 @@
         </a>
 
         <!-- 2. College Registration -->
-        <a class="service-card" href="Category.aspx?type=college-registration">
+        <a class="service-card" href="Collage From/CollageDetail.aspx?type=college-registration">
             <div class="service-icon-box icon-college-registration">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
                     <!-- Flag atop university -->

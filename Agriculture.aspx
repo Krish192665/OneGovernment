@@ -11,7 +11,7 @@
     <h2 class="section-title">Agriculture</h2>
     <div class="services-grid">
         <!-- 1. Agriculture Officer -->
-        <a class="service-card" href="Category.aspx?type=agriculture-officer">
+        <a class="service-card" href="Agriculture From/AgricultureDetails.aspx?type=agriculture-officer">
             <div class="service-icon-box icon-agriculture-officer">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
                     <!-- Officer Silhouette -->
@@ -29,7 +29,7 @@
         </a>
 
         <!-- 2. Field Inspector -->
-        <a class="service-card" href="Category.aspx?type=field-inspector">
+        <a class="service-card" href="Agriculture From/AgricultureDetails.aspx?type=field-inspector">
             <div class="service-icon-box icon-field-inspector">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
                     <!-- Inspector Silhouette -->

@@ -11,7 +11,7 @@
     <h2 class="section-title">Health</h2>
     <div class="services-grid">
         <!-- 1. Medical Exam -->
-        <a class="service-card" href="Category.aspx?type=medical-exam">
+        <a class="service-card" href="Health From/HealthDetails.aspx?type=medical-exam">
             <div class="service-icon-box icon-medical-exam">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
                     <!-- Exam / Question Paper -->
@@ -32,7 +32,7 @@
         </a>
 
         <!-- 2. Medical Entrance -->
-        <a class="service-card" href="Category.aspx?type=medical-entrance">
+        <a class="service-card" href="Health From/HealthDetails.aspx?type=medical-entrance">
             <div class="service-icon-box icon-medical-entrance">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
                     <!-- Certificate Frame -->

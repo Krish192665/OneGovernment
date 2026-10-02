@@ -87,31 +87,6 @@
                 </div>
             </div>
 
-            <!-- Landmark / Government Illustration (same as Login.aspx) -->
-            <div class="auth-illustration">
-                <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="50" y="240" width="300" height="20" rx="4" fill="#E2E8F0" />
-                    <rect x="70" y="210" width="260" height="30" rx="3" fill="#CBD5E1" />
-                    <rect x="85" y="160" width="230" height="50" rx="2" fill="#E2E8F0" />
-                    <!-- Columns -->
-                    <rect x="100" y="170" width="12" height="40" rx="2" fill="#94A3B8" />
-                    <rect x="130" y="170" width="12" height="40" rx="2" fill="#94A3B8" />
-                    <rect x="160" y="170" width="12" height="40" rx="2" fill="#94A3B8" />
-                    <rect x="194" y="170" width="12" height="40" rx="2" fill="#94A3B8" />
-                    <rect x="228" y="170" width="12" height="40" rx="2" fill="#94A3B8" />
-                    <rect x="258" y="170" width="12" height="40" rx="2" fill="#94A3B8" />
-                    <rect x="288" y="170" width="12" height="40" rx="2" fill="#94A3B8" />
-                    <!-- Dome -->
-                    <path d="M150 160 C150 110, 250 110, 250 160 Z" fill="#93C5FD" />
-                    <rect x="195" y="80" width="10" height="30" fill="#60A5FA" />
-                    <circle cx="200" cy="75" r="8" fill="#3B82F6" />
-                    <!-- Trees -->
-                    <circle cx="55" cy="225" r="18" fill="#86EFAC" />
-                    <rect x="52" y="225" width="6" height="20" fill="#78716C" />
-                    <circle cx="345" cy="225" r="18" fill="#86EFAC" />
-                    <rect x="342" y="225" width="6" height="20" fill="#78716C" />
-                </svg>
-            </div>
         </div>
     </form>
 </body>
