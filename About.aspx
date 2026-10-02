@@ -1,39 +1,7 @@
 <%@ Page Title="About Us" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="OneGovernment.About" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <!-- Active state styling for About Us in Master Page sidebar -->
     <style>
-        .portal-sidebar .nav-link[href*="Home.aspx"],
-        .portal-sidebar .nav-link[href*="Home.aspx"].active {
-            background-color: transparent !important;
-            color: #475569 !important;
-            font-weight: 600 !important;
-        }
-        .portal-sidebar .nav-link[href*="Home.aspx"] svg,
-        .portal-sidebar .nav-link[href*="Home.aspx"].active svg {
-            color: #64748b !important;
-        }
-        .portal-sidebar .nav-link[href*="Home.aspx"]:hover {
-            background-color: #f1f5f9 !important;
-            color: #0f172a !important;
-        }
-        .portal-sidebar .nav-link[href*="Home.aspx"]:hover svg {
-            color: #0f172a !important;
-        }
-        .portal-sidebar .nav-link[href*="About.aspx"] {
-            background-color: transparent !important;
-            color: #1e6fd8 !important;
-            font-weight: 700 !important;
-        }
-        .portal-sidebar .nav-link[href*="About.aspx"] svg circle {
-            fill: #1e6fd8 !important;
-            stroke: #1e6fd8 !important;
-        }
-        .portal-sidebar .nav-link[href*="About.aspx"] svg line {
-            stroke: #ffffff !important;
-            stroke-width: 2.6 !important;
-        }
-
         /* ============================================================
            About Us Page Layout & Components
            ============================================================ */

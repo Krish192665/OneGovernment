@@ -1,34 +1,7 @@
 <%@ Page Title="Profile" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="OneGovernment.Profile" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <!-- Active state styling for Profile in Master Page sidebar -->
     <style>
-        /* De-activate Home */
-        .portal-sidebar .nav-link[href*="Home.aspx"],
-        .portal-sidebar .nav-link[href*="Home.aspx"].active {
-            background-color: transparent !important;
-            color: #475569 !important;
-            font-weight: 600 !important;
-        }
-        .portal-sidebar .nav-link[href*="Home.aspx"] svg,
-        .portal-sidebar .nav-link[href*="Home.aspx"].active svg {
-            color: #64748b !important;
-        }
-        .portal-sidebar .nav-link[href*="Home.aspx"]:hover {
-            background-color: #f1f5f9 !important;
-            color: #0f172a !important;
-        }
-        /* Highlight Profile */
-        .portal-sidebar .nav-link[href*="Profile.aspx"] {
-            background-color: transparent !important;
-            color: #1e6fd8 !important;
-            font-weight: 700 !important;
-        }
-        .portal-sidebar .nav-link[href*="Profile.aspx"] svg {
-            color: #1e6fd8 !important;
-            stroke: #1e6fd8 !important;
-        }
-
         /* ============================================================
            Profile Page Layout
            ============================================================ */
@@ -556,21 +529,4 @@
 
     </div>
 
-    <!-- Active Sidebar Highlighting Script -->
-    <script type="text/javascript">
-        (function () {
-            function activate() {
-                var sidebar = document.querySelector(".portal-sidebar");
-                if (!sidebar) return;
-                sidebar.querySelectorAll(".nav-link").forEach(function (link) {
-                    var href = link.getAttribute("href") || "";
-                    if (href.indexOf("Profile.aspx") !== -1) link.classList.add("active");
-                    else link.classList.remove("active");
-                });
-            }
-            document.readyState === "loading"
-                ? document.addEventListener("DOMContentLoaded", activate)
-                : activate();
-        })();
-    </script>
 </asp:Content>

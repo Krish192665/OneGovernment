@@ -201,23 +201,29 @@
                 (function () {
                     function highlightActiveNav() {
                         var path = (window.location.pathname || "").toLowerCase();
-                        var currentFile = path.substring(path.lastIndexOf('/') + 1).split('?')[0];
-                        if (!currentFile || currentFile === "" || currentFile === "default.aspx") {
-                            currentFile = "home.aspx";
+                        var currentFile = path.substring(path.lastIndexOf('/') + 1).split('?')[0].replace(".aspx", "");
+                        if (!currentFile || currentFile === "" || currentFile === "default") {
+                            currentFile = "home";
                         }
-                        var links = document.querySelectorAll(".portal-sidebar .nav-link");
+                        var links = document.querySelectorAll(".portal-sidebar .nav-link:not(.logout)");
                         var found = false;
                         links.forEach(function (link) {
                             var href = (link.getAttribute("href") || "").toLowerCase();
-                            var page = href.substring(href.lastIndexOf('/') + 1).split('?')[0];
+                            var page = href.substring(href.lastIndexOf('/') + 1).split('?')[0].replace(".aspx", "");
                             if (page && page === currentFile) {
                                 link.classList.add("active");
                                 found = true;
                             } else {
                                 link.classList.remove("active");
                             }
+
+                            // Immediate active box switch on click
+                            link.addEventListener("click", function () {
+                                links.forEach(function (l) { l.classList.remove("active"); });
+                                this.classList.add("active");
+                            });
                         });
-                        if (!found && (currentFile === "home.aspx" || path.endsWith("/"))) {
+                        if (!found && (currentFile === "home" || path.endsWith("/"))) {
                             var homeLink = document.querySelector('.portal-sidebar .nav-link[href*="Home.aspx"]');
                             if (homeLink) homeLink.classList.add("active");
                         }

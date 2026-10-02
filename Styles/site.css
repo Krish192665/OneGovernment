@@ -403,6 +403,7 @@ body::-webkit-scrollbar {
     border-radius: 8px;
     font-size: 0.9rem;
     font-weight: 600;
+    background-color: transparent;
     transition: all 0.15s ease-in-out;
 }
 
@@ -410,37 +411,58 @@ body::-webkit-scrollbar {
         width: 18px;
         height: 18px;
         color: #64748b;
+        stroke: currentColor;
     }
 
-    .nav-link:hover {
+    /* Hover on non-active buttons */
+    .nav-link:not(.active):not(.logout):hover {
         background-color: #f1f5f9;
         color: #0f172a;
     }
 
+        .nav-link:not(.active):not(.logout):hover svg {
+            color: #0f172a;
+        }
+
+    /* Active Box - Blue box color available when clicked/active */
     .nav-link.active {
-        background-color: #eff6ff;
-        color: #1e6fd8;
+        background-color: #eff6ff !important;
+        color: #1e6fd8 !important;
+        font-weight: 600 !important;
     }
 
         .nav-link.active svg {
-            color: #1e6fd8;
+            color: #1e6fd8 !important;
+            stroke: #1e6fd8 !important;
         }
 
+    /* Non-active buttons - Box color NOT available */
+    .nav-link:not(.active):not(.logout) {
+        background-color: transparent !important;
+        color: #475569 !important;
+    }
+
+        .nav-link:not(.active):not(.logout) svg {
+            color: #64748b !important;
+        }
+
+    /* Logout Button */
     .nav-link.logout {
-        color: #ef4444;
+        color: #ef4444 !important;
         border: none;
-        background: none;
+        background-color: transparent !important;
         cursor: pointer;
         width: 100%;
         margin-top: 24px;
     }
 
         .nav-link.logout svg {
-            color: #ef4444;
+            color: #ef4444 !important;
         }
 
         .nav-link.logout:hover {
-            background-color: #fef2f2;
+            background-color: #fef2f2 !important;
+            color: #dc2626 !important;
         }
 
 /* ==========================================

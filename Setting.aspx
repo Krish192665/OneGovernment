@@ -1,34 +1,7 @@
 <%@ Page Title="Settings" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Setting.aspx.cs" Inherits="OneGovernment.Setting" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <!-- Active state styling for Settings in Master Page sidebar -->
     <style>
-        /* De-activate Home */
-        .portal-sidebar .nav-link[href*="Home.aspx"],
-        .portal-sidebar .nav-link[href*="Home.aspx"].active {
-            background-color: transparent !important;
-            color: #475569 !important;
-            font-weight: 600 !important;
-        }
-        .portal-sidebar .nav-link[href*="Home.aspx"] svg,
-        .portal-sidebar .nav-link[href*="Home.aspx"].active svg {
-            color: #64748b !important;
-        }
-        .portal-sidebar .nav-link[href*="Home.aspx"]:hover {
-            background-color: #f1f5f9 !important;
-            color: #0f172a !important;
-        }
-        /* Highlight Settings */
-        .portal-sidebar .nav-link[href*="Setting.aspx"] {
-            background-color: transparent !important;
-            color: #1e6fd8 !important;
-            font-weight: 700 !important;
-        }
-        .portal-sidebar .nav-link[href*="Setting.aspx"] svg {
-            color: #1e6fd8 !important;
-            stroke: #1e6fd8 !important;
-        }
-
         /* ============================================================
            Settings Layout — same as HelpSupport.aspx
            ============================================================ */
@@ -624,21 +597,6 @@
          Scripts
          ============================================================ -->
     <script type="text/javascript">
-        /* ---- Sidebar active state ---- */
-        (function () {
-            function activate() {
-                var sidebar = document.querySelector(".portal-sidebar");
-                if (!sidebar) return;
-                sidebar.querySelectorAll(".nav-link").forEach(function (link) {
-                    var href = link.getAttribute("href") || "";
-                    if (href.indexOf("Setting.aspx") !== -1) link.classList.add("active");
-                    else link.classList.remove("active");
-                });
-            }
-            document.readyState === "loading"
-                ? document.addEventListener("DOMContentLoaded", activate)
-                : activate();
-        })();
 
         /* ---- Modal helpers ---- */
         function openModal(id) {
