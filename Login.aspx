@@ -55,7 +55,8 @@
                 <asp:Button ID="SignInButton" runat="server" Text="Login" CssClass="btn-auth-submit" OnClick="SignInButton_Click" ValidationGroup="LoginGroup" />
 
                 <div class="auth-footer-text">
-                    Don't have an account? <a href="Register.aspx" class="auth-link">Register</a>
+                    Don't have an account? <a href="Register.aspx" class="auth-link">Register</a><br><br>
+                    <a href="Register.aspx" class="auth-link">Admin Login</a>
                 </div>
             </div>
 
