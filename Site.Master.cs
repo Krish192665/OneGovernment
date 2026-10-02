@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -49,7 +49,7 @@ namespace OneGovernment
             // Shared logout handler for the header logout button
             Session.Clear();
             Session.Abandon();
-            Response.Redirect("Login.aspx", false);
+            Response.Redirect("~/Login.aspx", false);
             Context.ApplicationInstance.CompleteRequest();
         }
     }

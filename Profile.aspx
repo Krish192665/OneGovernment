@@ -4,27 +4,27 @@
     <!-- Active state styling for Profile in Master Page sidebar -->
     <style>
         /* De-activate Home */
-        .portal-sidebar .nav-link[href="Home.aspx"],
-        .portal-sidebar .nav-link[href="Home.aspx"].active {
+        .portal-sidebar .nav-link[href*="Home.aspx"],
+        .portal-sidebar .nav-link[href*="Home.aspx"].active {
             background-color: transparent !important;
             color: #475569 !important;
             font-weight: 600 !important;
         }
-        .portal-sidebar .nav-link[href="Home.aspx"] svg,
-        .portal-sidebar .nav-link[href="Home.aspx"].active svg {
+        .portal-sidebar .nav-link[href*="Home.aspx"] svg,
+        .portal-sidebar .nav-link[href*="Home.aspx"].active svg {
             color: #64748b !important;
         }
-        .portal-sidebar .nav-link[href="Home.aspx"]:hover {
+        .portal-sidebar .nav-link[href*="Home.aspx"]:hover {
             background-color: #f1f5f9 !important;
             color: #0f172a !important;
         }
         /* Highlight Profile */
-        .portal-sidebar .nav-link[href="Profile.aspx"] {
+        .portal-sidebar .nav-link[href*="Profile.aspx"] {
             background-color: transparent !important;
             color: #1e6fd8 !important;
             font-weight: 700 !important;
         }
-        .portal-sidebar .nav-link[href="Profile.aspx"] svg {
+        .portal-sidebar .nav-link[href*="Profile.aspx"] svg {
             color: #1e6fd8 !important;
             stroke: #1e6fd8 !important;
         }
