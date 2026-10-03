@@ -598,6 +598,26 @@ body::-webkit-scrollbar {
     color: #ca8a04;
 }
 
+.service-icon-box.icon-aadhaar {
+    background-color: #ffedd5;
+    color: #ea580c;
+}
+
+.service-icon-box.icon-banking {
+    background-color: #d1fae5;
+    color: #059669;
+}
+
+.service-icon-box.icon-railway {
+    background-color: #e0e7ff;
+    color: #4338ca;
+}
+
+.service-icon-box.icon-ration {
+    background-color: #fef3c7;
+    color: #b45309;
+}
+
 .service-icon-box.icon-more {
     background-color: #f1f5f9;
     color: #475569;
