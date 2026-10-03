@@ -128,6 +128,7 @@
     <Content Include="Passport.aspx" />
     <Content Include="Police From\PoliceDetails.aspx" />
     <Content Include="Profile.aspx" />
+    <Content Include="ForgotPassword.aspx" />
     <Content Include="RTO From\RTODetails.aspx" />
     <Content Include="RTO.aspx" />
     <Content Include="Setting.aspx" />
@@ -395,6 +396,13 @@
     <Compile Include="Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="RTO From\RTODetails.aspx.cs">
       <DependentUpon>RTODetails.aspx</DependentUpon>

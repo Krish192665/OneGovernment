@@ -7,8 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Login | One Government</title>
-    <link href="Content/government.css" rel="stylesheet" />
-    <link href="~/Styles/site.css" rel="stylesheet" />
+    <link href="Styles/site.css" rel="stylesheet" />
 </head>
 <body class="auth-page-wrapper">
     <form id="loginForm" runat="server" defaultbutton="SignInButton">
