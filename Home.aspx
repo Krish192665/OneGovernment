@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="OneGovernment.Home" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="OneGovernment.Home" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server"> <main class="portal-content">
      <div class="page-greeting">
          <h1>Welcome back, Ramesh Pandey&#128075;</h1>
@@ -130,6 +130,53 @@
                  </svg>
              </div>
              <span class="service-name">Electricity</span>
+         </a>
+
+         <!-- 12. Aadhaar & Identity -->
+         <a class="service-card" href="Aadhaar.aspx?type=aadhaar">
+             <div class="service-icon-box icon-aadhaar">
+                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                     <rect x="3" y="4" width="18" height="16" rx="3"></rect>
+                     <circle cx="9" cy="10" r="2.5"></circle>
+                     <path d="M15 8h2M15 12h2M7 16h10"></path>
+                 </svg>
+             </div>
+             <span class="service-name">Aadhaar & Identity</span>
+         </a>
+
+         <!-- 13. Banking & Schemes -->
+         <a class="service-card" href="Banking.aspx?type=banking">
+             <div class="service-icon-box icon-banking">
+                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                     <path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M15 10v11M12 2l10 5H2l10-5z"></path>
+                 </svg>
+             </div>
+             <span class="service-name">Banking & Schemes</span>
+         </a>
+
+         <!-- 14. Railway & IRCTC -->
+         <a class="service-card" href="Railway.aspx?type=railway">
+             <div class="service-icon-box icon-railway">
+                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                     <rect x="4" y="3" width="16" height="16" rx="2"></rect>
+                     <path d="M4 11h16M12 3v8M8 19l-3 3M16 19l3 3"></path>
+                     <circle cx="8" cy="15" r="1"></circle>
+                     <circle cx="16" cy="15" r="1"></circle>
+                 </svg>
+             </div>
+             <span class="service-name">Railway & IRCTC</span>
+         </a>
+
+         <!-- 15. Ration Card -->
+         <a class="service-card" href="RationCard.aspx?type=ration">
+             <div class="service-icon-box icon-ration">
+                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                     <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                     <path d="M7 15h4M7 11h10M7 7h6"></path>
+                     <circle cx="16" cy="14" r="2"></circle>
+                 </svg>
+             </div>
+             <span class="service-name">Ration Card</span>
          </a>
 
      </div>

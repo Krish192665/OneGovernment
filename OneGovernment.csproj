@@ -97,6 +97,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Aadhaar.aspx" />
+    <Content Include="Aadhaar From\AadhaarDetails.aspx" />
+    <Content Include="Banking.aspx" />
+    <Content Include="Banking From\BankingDetails.aspx" />
+    <Content Include="Railway.aspx" />
+    <Content Include="Railway From\RailwayDetails.aspx" />
+    <Content Include="RationCard.aspx" />
+    <Content Include="RationCard From\RationCardDetails.aspx" />
     <Content Include="About.aspx" />
     <Content Include="Agriculture From\AgricultureDetails.aspx" />
     <Content Include="Agriculture.aspx" />
@@ -215,6 +223,62 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aadhaar.aspx.cs">
+      <DependentUpon>Aadhaar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aadhaar.aspx.designer.cs">
+      <DependentUpon>Aadhaar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Aadhaar From\AadhaarDetails.aspx.cs">
+      <DependentUpon>AadhaarDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aadhaar From\AadhaarDetails.aspx.designer.cs">
+      <DependentUpon>AadhaarDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Banking.aspx.cs">
+      <DependentUpon>Banking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Banking.aspx.designer.cs">
+      <DependentUpon>Banking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Banking From\BankingDetails.aspx.cs">
+      <DependentUpon>BankingDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Banking From\BankingDetails.aspx.designer.cs">
+      <DependentUpon>BankingDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Railway.aspx.cs">
+      <DependentUpon>Railway.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Railway.aspx.designer.cs">
+      <DependentUpon>Railway.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Railway From\RailwayDetails.aspx.cs">
+      <DependentUpon>RailwayDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Railway From\RailwayDetails.aspx.designer.cs">
+      <DependentUpon>RailwayDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RationCard.aspx.cs">
+      <DependentUpon>RationCard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RationCard.aspx.designer.cs">
+      <DependentUpon>RationCard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RationCard From\RationCardDetails.aspx.cs">
+      <DependentUpon>RationCardDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RationCard From\RationCardDetails.aspx.designer.cs">
+      <DependentUpon>RationCardDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Agriculture From\AgricultureDetails.aspx.cs">
       <DependentUpon>AgricultureDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
