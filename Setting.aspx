@@ -132,6 +132,26 @@
             animation: smIn 0.2s ease-out;
         }
 
+        .sm-profile-box { max-width: 480px; max-height: calc(100vh - 32px); }
+        .sm-profile-box .sm-header { padding: 15px 20px; }
+        .sm-profile-box .sm-body { gap: 13px; padding: 16px 20px; overflow-y: auto; }
+        .sm-profile-box .sm-footer { padding: 12px 20px; }
+        .sm-profile-box .sm-avatar-row { gap: 12px; padding: 11px 13px; }
+        .sm-profile-box .sm-avatar-circle { width: 50px; height: 50px; }
+        .sm-profile-box .sm-avatar-name { font-size: .93rem; }
+        .sm-profile-box .sm-avatar-hint { font-size: .72rem; }
+
+        .sm-profile-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px 13px;
+        }
+
+        .sm-profile-grid .sm-form-group { min-width: 0; gap: 4px; }
+        .sm-profile-grid .sm-profile-wide { grid-column: 1 / -1; }
+        .sm-profile-grid .sm-label { font-size: .78rem; }
+        .sm-profile-grid .sm-input { min-width: 0; padding: 9px 11px; font-size: .84rem; }
+
         @keyframes smIn {
             from { opacity: 0; transform: scale(0.96); }
             to   { opacity: 1; transform: scale(1); }
@@ -186,6 +206,7 @@
         }
 
         .sm-avatar-circle {
+            position: relative;
             width: 58px;
             height: 58px;
             background: #dbeafe;
@@ -198,6 +219,47 @@
         }
 
         .sm-avatar-circle svg { width: 28px; height: 28px; }
+
+        .sm-avatar-photo,
+        .sm-avatar-initials {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+        .sm-avatar-photo { object-fit: cover; }
+        .sm-avatar-photo[hidden] { display: none; }
+
+        .sm-avatar-initials {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 17px;
+            font-weight: 750;
+        }
+
+        .sm-avatar-upload {
+            position: absolute;
+            right: -4px;
+            bottom: -3px;
+            display: flex;
+            width: 25px;
+            height: 25px;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            background: #1e6fd8;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .sm-avatar-upload svg { width: 13px; height: 13px; }
+        .sm-avatar-upload:focus-visible { outline: 3px solid #93c5fd; outline-offset: 2px; }
+        .sm-avatar-file { display: none; }
+        .sm-avatar-hint { margin: 4px 0 0; color: #64748b; font-size: 0.76rem; }
 
         .sm-avatar-info { display: flex; flex-direction: column; gap: 2px; }
 
@@ -355,6 +417,15 @@
             .setting-card-left { gap: 14px; }
             .sm-body { padding: 18px 16px; }
             .sm-header, .sm-footer { padding: 16px; }
+            .sm-profile-box { max-height: calc(100vh - 20px); }
+            .sm-profile-box .sm-header { padding: 13px 16px; }
+            .sm-profile-box .sm-body { padding: 13px 16px; }
+            .sm-profile-box .sm-footer { padding: 11px 16px; }
+        }
+
+        @media (max-width: 420px) {
+            .sm-profile-grid { grid-template-columns: minmax(0, 1fr); }
+            .sm-profile-grid .sm-profile-wide { grid-column: auto; }
         }
     </style>
 
@@ -426,7 +497,7 @@
          ============================================================ -->
     <div id="profileModal" class="sm-overlay" role="dialog" aria-modal="true"
          aria-labelledby="profileModalTitle" onclick="closeBg(event,'profileModal')">
-        <div class="sm-box">
+        <div class="sm-box sm-profile-box">
 
             <div class="sm-header">
                 <h3 id="profileModalTitle">
@@ -445,30 +516,35 @@
                 <!-- Avatar preview row -->
                 <div class="sm-avatar-row">
                     <div class="sm-avatar-circle">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                        </svg>
+                        <span class="sm-avatar-initials" id="avatarInitials" aria-hidden="true">RP</span>
+                        <img class="sm-avatar-photo" id="profilePhotoPreview" alt="" hidden>
+                        <button type="button" class="sm-avatar-upload" aria-label="Choose profile photo" title="Choose profile photo" onclick="document.getElementById('profilePhotoInput').click()">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h-4L8 7H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z" /><circle cx="12" cy="13" r="3" /></svg>
+                        </button>
                     </div>
                     <div class="sm-avatar-info">
-                        <p class="sm-avatar-name" id="avatarName">Ramesh Pandey</p>
+                        <p class="sm-avatar-name" id="avatarName">Ramjibhai Pandey</p>
                         <p class="sm-avatar-sub">One Government Citizen Account</p>
+                        <p class="sm-avatar-hint">Choose a photo to update your Profile.</p>
                     </div>
                 </div>
+                <input type="file" class="sm-avatar-file" id="profilePhotoInput" accept="image/*" onchange="handleSettingsPhoto(event)">
 
-                <!-- Full Name -->
-                <div class="sm-form-group">
-                    <label class="sm-label" for="profileName">Full Name</label>
-                    <input type="text" id="profileName" class="sm-input"
-                           placeholder="Enter your full name" value="Ramesh Pandey"
-                           oninput="clearErr('profileNameErr')">
-                    <span class="sm-error" id="profileNameErr">Full name is required.</span>
-                </div>
+                <div class="sm-profile-grid">
+                    <!-- Full Name -->
+                    <div class="sm-form-group sm-profile-wide">
+                        <label class="sm-label" for="profileName">Full Name</label>
+                        <input type="text" id="profileName" class="sm-input"
+                               placeholder="Enter your full name" value="Ramjibhai Pandey"
+                               oninput="clearErr('profileNameErr')">
+                        <span class="sm-error" id="profileNameErr">Full name is required.</span>
+                    </div>
 
                 <!-- Email -->
                 <div class="sm-form-group">
                     <label class="sm-label" for="profileEmail">Email Address</label>
                     <input type="email" id="profileEmail" class="sm-input"
-                           placeholder="e.g. citizen@gov.in" value="ramesh.pandey@gov.in"
+                              placeholder="e.g. citizen@gov.in" value="ram@gmail.com"
                            oninput="clearErr('profileEmailErr')">
                     <span class="sm-error" id="profileEmailErr">Enter a valid email address.</span>
                 </div>
@@ -477,7 +553,7 @@
                 <div class="sm-form-group">
                     <label class="sm-label" for="profileMobile">Mobile Number</label>
                     <input type="tel" id="profileMobile" class="sm-input"
-                           placeholder="10-digit mobile number" value="9876543210"
+                              placeholder="10-digit mobile number" value="9876543210"
                            maxlength="10" oninput="clearErr('profileMobileErr')">
                     <span class="sm-error" id="profileMobileErr">Enter a valid 10-digit mobile number.</span>
                 </div>
@@ -485,7 +561,7 @@
                 <!-- Date of Birth -->
                 <div class="sm-form-group">
                     <label class="sm-label" for="profileDob">Date of Birth</label>
-                    <input type="date" id="profileDob" class="sm-input" value="1990-04-15">
+                    <input type="date" id="profileDob" class="sm-input" value="1969-04-15">
                 </div>
 
                 <!-- Gender -->
@@ -498,6 +574,27 @@
                         <option value="other">Other</option>
                         <option value="prefer-not">Prefer not to say</option>
                     </select>
+                </div>
+
+                <div class="sm-form-group">
+                    <label class="sm-label" for="profileAge">Age</label>
+                    <input type="number" id="profileAge" class="sm-input" min="1" max="120" value="57" oninput="clearErr('profileAgeErr')">
+                    <span class="sm-error" id="profileAgeErr">Enter an age from 1 to 120.</span>
+                </div>
+
+                <div class="sm-form-group">
+                    <label class="sm-label" for="profileCategory">Category</label>
+                    <select id="profileCategory" class="sm-input">
+                        <option value="RTO" selected>RTO</option>
+                        <option value="Aadhaar">Aadhaar</option>
+                        <option value="Agriculture">Agriculture</option>
+                        <option value="Banking">Banking</option>
+                        <option value="Education">Education</option>
+                        <option value="Health">Health</option>
+                        <option value="Passport">Passport</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
                 </div>
             </div>
 
@@ -598,8 +695,11 @@
          ============================================================ -->
     <script type="text/javascript">
 
+        var _profilePhotoData = "";
+
         /* ---- Modal helpers ---- */
         function openModal(id) {
+            if (id === "profileModal") loadProfileDetails();
             document.getElementById(id).style.display = "flex";
         }
 
@@ -632,11 +732,95 @@
             document.getElementById(id).style.display = "none";
         }
 
+        function loadProfileDetails() {
+            try {
+                var details = JSON.parse(localStorage.getItem("oneGovernmentProfile") || "null");
+                if (!details) {
+                    _profilePhotoData = "";
+                    setSettingsAvatar("", document.getElementById("profileName").value);
+                    return;
+                }
+                if (details.name) document.getElementById("profileName").value = details.name;
+                if (details.email) document.getElementById("profileEmail").value = details.email;
+                if (details.mobile) document.getElementById("profileMobile").value = details.mobile;
+                if (details.dob) document.getElementById("profileDob").value = details.dob;
+                if (details.gender) document.getElementById("profileGender").value = details.gender;
+                if (details.age) document.getElementById("profileAge").value = details.age;
+                if (details.category) document.getElementById("profileCategory").value = details.category;
+                document.getElementById("avatarName").textContent = details.name || "Ramjibhai Pandey";
+                _profilePhotoData = details.photo || "";
+                setSettingsAvatar(_profilePhotoData, details.name || "Ramjibhai Pandey");
+            } catch (error) {
+            }
+        }
+
+        function setSettingsAvatar(photo, name) {
+            var initialsElement = document.getElementById("avatarInitials");
+            var photoElement = document.getElementById("profilePhotoPreview");
+            name = (name || "Guest User").trim() || "Guest User";
+            var words = name.split(/\s+/).filter(Boolean);
+            var initials = words.length > 1
+                ? words[0].charAt(0) + words[words.length - 1].charAt(0)
+                : words[0].substring(0, 2);
+            var palette = [
+                ["#dbeafe", "#1e40af"], ["#dcfce7", "#166534"], ["#fef3c7", "#92400e"],
+                ["#fce7f3", "#9d174d"], ["#e0e7ff", "#3730a3"]
+            ];
+            var colorIndex = 0;
+            for (var index = 0; index < name.length; index++)
+                colorIndex = (colorIndex + name.charCodeAt(index)) % palette.length;
+
+            initialsElement.textContent = initials.toUpperCase();
+            initialsElement.style.backgroundColor = palette[colorIndex][0];
+            initialsElement.style.color = palette[colorIndex][1];
+            photoElement.hidden = !photo;
+            initialsElement.hidden = !!photo;
+            if (photo) photoElement.src = photo;
+        }
+
+        function handleSettingsPhoto(event) {
+            var file = event.target.files && event.target.files[0];
+            if (!file) return;
+            if (!file.type || file.type.indexOf("image/") !== 0 || file.size > 8 * 1024 * 1024) {
+                showToast("Choose an image smaller than 8 MB.");
+                event.target.value = "";
+                return;
+            }
+
+            var reader = new FileReader();
+            reader.onload = function () {
+                var sourceImage = new Image();
+                sourceImage.onload = function () {
+                    var cropSize = Math.min(sourceImage.naturalWidth, sourceImage.naturalHeight);
+                    var cropX = (sourceImage.naturalWidth - cropSize) / 2;
+                    var cropY = (sourceImage.naturalHeight - cropSize) / 2;
+                    var canvas = document.createElement("canvas");
+                    canvas.width = 256;
+                    canvas.height = 256;
+                    canvas.getContext("2d").drawImage(sourceImage, cropX, cropY, cropSize, cropSize, 0, 0, 256, 256);
+                    _profilePhotoData = canvas.toDataURL("image/jpeg", 0.82);
+                    setSettingsAvatar(_profilePhotoData, document.getElementById("profileName").value);
+                    event.target.value = "";
+                };
+                sourceImage.onerror = function () {
+                    showToast("This image could not be opened.");
+                    event.target.value = "";
+                };
+                sourceImage.src = reader.result;
+            };
+            reader.onerror = function () {
+                showToast("This image could not be read.");
+                event.target.value = "";
+            };
+            reader.readAsDataURL(file);
+        }
+
         /* ---- Save Profile ---- */
         function saveProfile() {
             var name   = document.getElementById("profileName").value.trim();
             var email  = document.getElementById("profileEmail").value.trim();
             var mobile = document.getElementById("profileMobile").value.trim();
+            var age    = Number(document.getElementById("profileAge").value);
             var valid  = true;
 
             if (!name) {
@@ -648,10 +832,38 @@
             if (!mobile || !/^\d{10}$/.test(mobile)) {
                 showErr("profileMobileErr", "Enter a valid 10-digit mobile number."); valid = false;
             }
+            if (!Number.isInteger(age) || age < 1 || age > 120) {
+                showErr("profileAgeErr", "Enter an age from 1 to 120."); valid = false;
+            }
             if (!valid) return;
+
+            var previousDetails = {};
+            try {
+                previousDetails = JSON.parse(localStorage.getItem("oneGovernmentProfile") || "{}") || {};
+            } catch (error) {
+            }
+
+            var details = {
+                name: name,
+                email: email,
+                mobile: mobile,
+                dob: document.getElementById("profileDob").value,
+                gender: document.getElementById("profileGender").value,
+                age: String(age),
+                category: document.getElementById("profileCategory").value,
+                photo: _profilePhotoData || previousDetails.photo || ""
+            };
+
+            try {
+                localStorage.setItem("oneGovernmentProfile", JSON.stringify(details));
+            } catch (error) {
+                showToast("Unable to save profile in this browser.");
+                return;
+            }
 
             // Update avatar name preview
             document.getElementById("avatarName").textContent = name;
+            setSettingsAvatar(details.photo, name);
 
             closeModal("profileModal");
             showToast("Profile updated successfully ✓");
