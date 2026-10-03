@@ -90,18 +90,6 @@
         .step-dot.active { background: #3b82f6; width: 24px; border-radius: 4px; }
         .step-dot.done { background: #10b981; }
 
-        /* PW strength */
-        .pw-strength-bar {
-            height: 4px; border-radius: 2px;
-            background: #e2e8f0; margin-top: 6px; overflow: hidden;
-        }
-        .pw-strength-fill {
-            height: 100%; border-radius: 2px;
-            transition: width 0.3s, background 0.3s;
-            width: 0%; background: #ef4444;
-        }
-        .pw-strength-label { font-size: 0.72rem; margin-top: 3px; color: #64748b; }
-
         .auth-success-box {
             background: #f0fdf4; border: 1px solid #bbf7d0;
             border-radius: 10px; padding: 16px 18px; margin: 16px 0;
@@ -245,15 +233,12 @@
                     <div class="form-group">
                         <label for="txtNewPassword">New Password</label>
                         <asp:TextBox ID="txtNewPassword" runat="server" CssClass="form-input"
-                            TextMode="Password" placeholder="Min. 8 characters"
-                            onkeyup="checkPwStrength(this.value)" />
+                            TextMode="Password" placeholder="Min. 8 characters" />
                         <asp:RequiredFieldValidator ID="rfvNewPw" runat="server"
                             ControlToValidate="txtNewPassword"
                             ErrorMessage="Please enter a new password."
                             CssClass="field-error" Display="Dynamic"
                             ValidationGroup="FPGroup3" />
-                        <div class="pw-strength-bar"><div class="pw-strength-fill" id="pwFill"></div></div>
-                        <div class="pw-strength-label" id="pwLabel">Enter a password</div>
                     </div>
 
                     <div class="form-group">
@@ -363,23 +348,6 @@
             }, 1000);
         }
 
-        // ---- Password strength ----
-        function checkPwStrength(val) {
-            var fill = document.getElementById('pwFill');
-            var label = document.getElementById('pwLabel');
-            if (!fill || !label) return;
-            var score = 0;
-            if (val.length >= 8) score++;
-            if (/[A-Z]/.test(val)) score++;
-            if (/[0-9]/.test(val)) score++;
-            if (/[^A-Za-z0-9]/.test(val)) score++;
-            var pct = ['0%','25%','50%','75%','100%'][score];
-            var color = ['#ef4444','#f97316','#eab308','#84cc16','#22c55e'][score];
-            var text = ['','Weak','Fair','Good','Strong'][score];
-            fill.style.width = pct; fill.style.background = color;
-            label.textContent = text ? 'Strength: ' + text : 'Enter a password';
-            label.style.color = color || '#64748b';
-        }
     </script>
 </body>
 </html>
