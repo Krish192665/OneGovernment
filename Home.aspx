@@ -32,7 +32,7 @@
          </a>
 
          <!-- 3. Students -->
-         <a class="service-card" href="Student.aspx?type=student">
+         <a class="service-card"  href="Student.aspx?type=student">
              <div class="service-icon-box icon-students">
                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                      <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
