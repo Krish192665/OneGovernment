@@ -241,8 +241,8 @@
                 <div class="profile-avatar-fallback" id="profileAvatarFallback" aria-hidden="true">RP</div>
                 <img id="profilePhotoPreview" alt="" hidden />
             </div>
-            <h2 class="profile-name" id="profileName">Ramjibhai Pandey</h2>
-            <p class="profile-email" id="profileEmail">ram@gmail.com</p>
+            <h2 class="profile-name" id="profileName"><%= CurrentUser != null ? Server.HtmlEncode(CurrentUser.FullName) : "Ramjibhai Pandey" %></h2>
+            <p class="profile-email" id="profileEmail"><%= CurrentUser != null ? Server.HtmlEncode(CurrentUser.Email) : "ram@gmail.com" %></p>
             <p class="profile-summary-note">A single place to review your citizen account details.</p>
         </aside>
 
@@ -250,7 +250,7 @@
             <div class="profile-details-heading">
                 <div>
                     <h2 class="profile-details-title">Personal information</h2>
-                    <p class="profile-details-note">Your current profile details</p>
+                    <p class="profile-details-note">Your current profile details from database</p>
                 </div>
                 <a class="profile-edit-link" href="Setting.aspx">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9" /><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z" /></svg>
@@ -259,12 +259,12 @@
             </div>
 
             <div class="profile-details-grid">
-                <div class="profile-detail"><p class="profile-detail-label">Full name</p><p class="profile-detail-value" id="detailName">Ramjibhai Pandey</p></div>
-                <div class="profile-detail"><p class="profile-detail-label">Email address</p><p class="profile-detail-value" id="detailEmail">ram@gmail.com</p></div>
-                <div class="profile-detail"><p class="profile-detail-label">Mobile number</p><p class="profile-detail-value" id="detailMobile">9876543210</p></div>
+                <div class="profile-detail"><p class="profile-detail-label">Full name</p><p class="profile-detail-value" id="detailName"><%= CurrentUser != null ? Server.HtmlEncode(CurrentUser.FullName) : "Ramjibhai Pandey" %></p></div>
+                <div class="profile-detail"><p class="profile-detail-label">Email address</p><p class="profile-detail-value" id="detailEmail"><%= CurrentUser != null ? Server.HtmlEncode(CurrentUser.Email) : "ram@gmail.com" %></p></div>
+                <div class="profile-detail"><p class="profile-detail-label">Mobile number</p><p class="profile-detail-value" id="detailMobile"><%= CurrentUser != null && !string.IsNullOrEmpty(CurrentUser.PhoneNumber) ? Server.HtmlEncode(CurrentUser.PhoneNumber) : "9876543210" %></p></div>
                 <div class="profile-detail"><p class="profile-detail-label">Date of birth</p><p class="profile-detail-value" id="detailDob">15 April 1969</p></div>
-                <div class="profile-detail"><p class="profile-detail-label">Age</p><p class="profile-detail-value" id="detailAge">57</p></div>
-                <div class="profile-detail"><p class="profile-detail-label">Gender</p><p class="profile-detail-value" id="detailGender">Male</p></div>
+                <div class="profile-detail"><p class="profile-detail-label">Age</p><p class="profile-detail-value" id="detailAge"><%= CurrentUser != null && CurrentUser.Age > 0 ? CurrentUser.Age.ToString() : "57" %></p></div>
+                <div class="profile-detail"><p class="profile-detail-label">Role</p><p class="profile-detail-value" id="detailRole"><%= CurrentUser != null ? Server.HtmlEncode(CurrentUser.Role) : "Citizen" %></p></div>
                 <div class="profile-detail"><p class="profile-detail-label">Service category</p><p class="profile-detail-value" id="detailCategory">RTO</p></div>
             </div>
 

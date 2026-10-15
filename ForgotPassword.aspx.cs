@@ -113,7 +113,13 @@ namespace OneGovernment
                 return;
             }
 
-            // In production: update the user's password in the database here.
+            // Update the user's password in the database
+            string email = Session["FP_Email"] as string;
+            string newPass = txtNewPassword.Text.Trim();
+            if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(newPass))
+            {
+                OneGovernment.Models.DbHelper.UpdateUserPassword(email, newPass);
+            }
 
             // Cleanup session flags
             Session.Remove("FP_OTPVerified");

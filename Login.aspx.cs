@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -31,24 +31,32 @@ namespace OneGovernment
 
             string emailOrMobile = EmailTextBox.Text.Trim();
             string password = PasswordTextBox.Text.Trim();
-            string name = "Citizen";
 
-            if (!string.IsNullOrEmpty(emailOrMobile))
+            try
             {
-                if (emailOrMobile.Contains("@"))
-                {
-                    string part = emailOrMobile.Split('@')[0];
-                    if (!string.IsNullOrEmpty(part))
-                    {
-                        name = char.ToUpper(part[0]) + part.Substring(1);
-                    }
-                }
-                Session["Email"] = emailOrMobile;
-            }
+                OneGovernment.Models.User user = OneGovernment.Models.DbHelper.AuthenticateUser(emailOrMobile, password);
 
-            Session["DisplayName"] = name;
-            Response.Redirect("Home.aspx", false);
-            Context.ApplicationInstance.CompleteRequest();
+                if (user != null)
+                {
+                    Session["UserId"] = user.Id;
+                    Session["DisplayName"] = user.FullName;
+                    Session["Email"] = user.Email;
+                    Session["Role"] = user.Role;
+                    Session["Age"] = user.Age;
+                    Session["PhoneNumber"] = user.PhoneNumber;
+
+                    Response.Redirect("Home.aspx", false);
+                    Context.ApplicationInstance.CompleteRequest();
+                }
+                else
+                {
+                    StatusLabel.Text = "<div style='color: #dc2626; background: #fee2e2; border: 1px solid #f87171; padding: 10px; border-radius: 6px; margin-bottom: 15px; font-size: 14px;'>Invalid email/mobile or password. Please try again.</div>";
+                }
+            }
+            catch (Exception ex)
+            {
+                StatusLabel.Text = "<div style='color: #dc2626; background: #fee2e2; border: 1px solid #f87171; padding: 10px; border-radius: 6px; margin-bottom: 15px; font-size: 14px;'>Database error: " + Server.HtmlEncode(ex.Message) + "</div>";
+            }
         }
     }
 }

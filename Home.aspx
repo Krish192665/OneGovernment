@@ -1,7 +1,7 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="OneGovernment.Home" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server"> <main class="portal-content">
      <div class="page-greeting">
-         <h1>Welcome back, Ramesh Pandey&#128075;</h1>
+         <h1>Welcome back, Ramesh Pandey</h1>
          <p>Access all government services in one place</p>
      </div>
 

@@ -38,7 +38,7 @@
                 <div class="form-group">
                     <label for="EmailTextBox">Email or Mobile</label>
                     <asp:TextBox ID="EmailTextBox" runat="server" CssClass="form-input" placeholder="e.g. ramesh@gmail.com" />
-                    <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="EmailTextBox" ErrorMessage="Email or mobile is required." CssClass="field-error" Display="Dynamic" ValidationGroup="LoginGroup" />
+                    <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="EmailTextBox" ErrorMessage="Email or mobile is required." CssClass="field-error" Display="Dynamic" ValidationGroup="LoginGroup" ValidateRequestMode="Disabled" />
                 </div>
 
                 <div class="form-group">

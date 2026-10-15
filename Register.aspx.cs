@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -34,20 +34,49 @@ namespace OneGovernment
             string emailOrMobile = EmailTextBox.Text.Trim();
             string password = PasswordTextBox.Text.Trim();
 
-            // Optional fields
             int age = 0;
             int.TryParse(AgeTextBox?.Text, out age);
-            string role = RoleDropDown?.SelectedValue ?? string.Empty;
+            string role = RoleDropDown?.SelectedValue ?? "Citizen";
 
-            // Store user details in session (or replace with database insert query)
-            Session["DisplayName"] = name;
-            Session["Email"] = emailOrMobile;
-            Session["Age"] = age;
-            Session["Role"] = role;
+            try
+            {
+                // OOP Implementation: Instantiate Model
+                var user = new OneGovernment.Models.User
+                {
+                    FullName = name,
+                    Email = emailOrMobile.Contains("@") ? emailOrMobile : emailOrMobile + "@onegovernment.local",
+                    PhoneNumber = !emailOrMobile.Contains("@") ? emailOrMobile : "",
+                    Age = age,
+                    Role = role,
+                    Password = password
+                };
 
-            // Redirect user to Login page upon completion
-            Response.Redirect("Home.aspx", false);
-            Context.ApplicationInstance.CompleteRequest();
+                string errorMessage;
+                bool isSuccess = OneGovernment.Models.DbHelper.RegisterUser(user, out errorMessage);
+
+                if (isSuccess)
+                {
+                    // Store user details in session
+                    Session["UserId"] = user.Id;
+                    Session["DisplayName"] = user.FullName;
+                    Session["Email"] = user.Email;
+                    Session["Age"] = user.Age;
+                    Session["Role"] = user.Role;
+                    Session["PhoneNumber"] = user.PhoneNumber;
+
+                    // Redirect user to Home page
+                    Response.Redirect("Home.aspx", false);
+                    Context.ApplicationInstance.CompleteRequest();
+                }
+                else
+                {
+                    StatusLabel.Text = "<div style='color: #dc2626; background: #fee2e2; border: 1px solid #f87171; padding: 10px; border-radius: 6px; margin-bottom: 15px; font-size: 14px;'>" + Server.HtmlEncode(errorMessage) + "</div>";
+                }
+            }
+            catch (Exception ex)
+            {
+                StatusLabel.Text = "<div style='color: #dc2626; background: #fee2e2; border: 1px solid #f87171; padding: 10px; border-radius: 6px; margin-bottom: 15px; font-size: 14px;'>Database error: " + Server.HtmlEncode(ex.Message) + "</div>";
+            }
         }
     }
 }
